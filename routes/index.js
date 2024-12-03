@@ -1,10 +1,11 @@
+const Passport = require("passport");
 const router = require("express").Router();
 
 router.use("/", require("./swagger"));
 router.use('/products', require('./products'));
 router.use('/transactions', require('./transactions'));
 
-router.get("/login", passport.authenticate("github"), (req, res) => {
+router.get("/login", Passport.authenticate("github"), (req, res) => {
     res.redirect("/");
 });
 
